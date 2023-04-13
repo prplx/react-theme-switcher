@@ -1,5 +1,7 @@
 A little and neat React theme switcher component with zero dependencies, besides React itself. Heavily inspired by this amazing article https://web.dev/building-a-theme-switch-component/ by [Adam Argyle](https://github.com/argyleink).
 
+<img src="https://user-images.githubusercontent.com/2864594/231800500-e897b6b0-20f2-4327-83aa-9e044402041e.gif" width="200px">
+
 ### Installation
 
 ```sh
