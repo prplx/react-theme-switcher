@@ -4,7 +4,7 @@
   --dark-color: var(--theme-switcher-dark-color, #a1a1aa);
   --dark-hover-color: var(--theme-switcher-dark-hover-color, #ffffff);
   --size: var(--theme-switcher-size, 1.6rem);
-  --size-mobile: var(--theme-switcher-size-mobile, 32px);
+  --size-mobile: var(--theme-switcher-size-mobile, 2rem);
 
   inline-size: var(--size);
   block-size: var(--size);
@@ -94,6 +94,6 @@
 
 @media (hover: none) {
   .theme-switcher {
-    --size: var(--theme-switcher-size-mobile);
+    --size: var(--size-mobile);
   }
 }
