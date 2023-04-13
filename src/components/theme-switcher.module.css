@@ -1,0 +1,99 @@
+.theme-switcher {
+  --light-color: var(--theme-switcher-light-color, #a1a1aa);
+  --light-hover-color: var(--theme-switcher-light-hover-color, #27272a);
+  --dark-color: var(--theme-switcher-dark-color, #a1a1aa);
+  --dark-hover-color: var(--theme-switcher-dark-hover-color, #ffffff);
+  --size: var(--theme-switcher-size, 1.6rem);
+  --size-mobile: var(--theme-switcher-size-mobile, 32px);
+
+  inline-size: var(--size);
+  block-size: var(--size);
+  background: none;
+  border: none;
+  padding: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline-offset: 5px;
+}
+
+.theme-switcher > svg {
+  inline-size: 100%;
+  block-size: 100%;
+  stroke-linecap: round;
+}
+
+.theme-switcher:is(:hover, :focus-visible) .theme-switcher-sun {
+  fill: var(--light-hover-color);
+}
+
+.theme-switcher:is(:hover, :focus-visible) .theme-switcher-sun-beams {
+  stroke: var(--light-hover-color);
+}
+
+.theme-switcher-sun-and-moon > .theme-switcher-sun {
+  transition: transform 0.5s cubic-bezier(0.5, 1.25, 0.75, 1.25);
+}
+
+.theme-switcher-sun-and-moon
+  > :is(.theme-switcher-moon, .theme-switcher-sun, .theme-switcher-sun-beams) {
+  transform-origin: center center;
+}
+
+.theme-switcher-sun-and-moon > :is(.theme-switcher-moon, .theme-switcher-sun) {
+  fill: var(--light-color);
+}
+
+.theme-switcher-sun-and-moon > .theme-switcher-sun-beams {
+  stroke: var(--light-color);
+  stroke-width: 2px;
+  transition: transform 0.5s cubic-bezier(0.5, 1.5, 0.75, 1.25),
+    opacity 0.5s cubic-bezier(0.25, 0, 0.3, 1);
+}
+
+.theme-switcher_dark .theme-switcher-moon,
+.theme-switcher_dark .theme-switcher-sun {
+  fill: var(--dark-color);
+}
+
+.theme-switcher.theme-switcher_dark:is(:hover, :focus-visible)
+  .theme-switcher-sun,
+.theme-switcher.theme-switcher_dark:is(:hover, :focus-visible)
+  .theme-switcher-moon {
+  fill: var(--dark-hover-color);
+}
+
+.theme-switcher.theme-switcher_dark .theme-switcher-sun {
+  transform: scale(1.75);
+  transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
+  transition-duration: 0.25s;
+}
+
+.theme-switcher.theme-switcher_dark .theme-switcher-sun-beams {
+  opacity: 0;
+  transform: rotateZ(-25deg);
+  transition-duration: 0.15s;
+}
+
+.theme-switcher.theme-switcher_dark .theme-switcher-moon > circle {
+  transform: translateX(-7px);
+  transition-delay: 0.25s;
+  transition-duration: 0.5s;
+}
+
+.theme-switcher.theme-switcher_dark {
+  @supports (cx: 1) {
+    .theme-switcher-sun-and-moon .theme-switcher-moon > circle {
+      transform: translateX(0);
+      cx: 17;
+    }
+  }
+}
+
+@media (hover: none) {
+  .theme-switcher {
+    --size: var(--theme-switcher-size-mobile);
+  }
+}
