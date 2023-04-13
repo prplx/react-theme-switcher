@@ -5,7 +5,7 @@ const config: Options = {
   entry: ['src/index.ts'],
   dts: true,
   splitting: true,
-  sourcemap: true,
+  sourcemap: false,
   clean: true,
   minify: true,
   esbuildPlugins: [
